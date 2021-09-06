@@ -1,0 +1,109 @@
+ 
+{
+thers lots of things can be improve
+1. improve the color quality it kind of very shaded 
+...its look very old kind of stuff,dosn't attract an eye
+
+2.some places images are overflown to the box container , neeened to be fix that.
+3.  decrease the size of image as it is neended in some places
+4. needed to be less scrobellable page like we have to section the page. people these day prefer small view page where they can get 
+all required field.
+5. there is no patteren in spacing between element as there is so much wastage of space . elements are put in hazardus manner .
+this whole page needed to be degin in moder way/moder patteren
+}
+
+
+
+
+import java.io.*;
+ 
+
+class Main
+{
+
+    // m is size of coins array 
+
+    // (number of different coins)
+
+    static int minCoins(int coins[], int m, int V)
+
+    {
+
+        
+
+        int table[] = new int[V + 1];
+ 
+
+        // Base case (If given value V is 0)
+
+        table[0] = 0;
+ 
+
+        // Initialize all table values as Infinite
+
+        for (int i = 1; i <= V; i++)
+
+        table[i] = Integer.MAX_VALUE;
+ 
+
+        // Compute minimum coins required for all
+
+        // values from 1 to V
+
+        for (int i = 1; i <= V; i++)
+
+        {
+
+            // Go through all coins smaller than i
+
+            for (int j = 0; j < m; j++)
+
+            if (coins[j] <= i)
+
+            {
+
+                int sub_res = table[i - coins[j]];
+
+                if (sub_res != Integer.MAX_VALUE 
+
+                       && sub_res + 1 < table[i])
+
+                       table[i] = sub_res + 1;
+
+                        
+
+                 
+
+            }
+
+             
+
+        }
+
+       
+
+          if(table[V]==Integer.MAX_VALUE)
+
+            return -1;
+
+       
+
+        return table[V];
+
+         
+
+    }
+ 
+
+    // Driver program 
+
+    public static void main (String[] args) 
+
+    {
+
+       //
+
+    }
+} 
+
+
